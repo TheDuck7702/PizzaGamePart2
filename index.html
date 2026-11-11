@@ -8,10 +8,14 @@
 </head>
 <body>
     <div id="game-container">
-        <div id="score-board">Score: <span id="score">0</span></div>
-        <canvas id="gameCanvas" width="400" height="600"></canvas>
+    
+        <div id="score-board">
+            Score: <span id="score">0</span> | High: <span id="high-score">0</span>
+        </div>
+       
+        <canvas id="gameCanvas" width="420" height="640"></canvas>
         
-        <!-- Start Screen Overlay -->
+        
         <div id="start-screen" class="overlay">
             <h1>PIZZA JUMP</h1>
             <p>Use <b>Left / Right</b> arrows or <b>A / D</b> to move.</p>
@@ -19,7 +23,7 @@
             <button onclick="startGame()">Press Space or Click to Start</button>
         </div>
 
-        <!-- Game Over Overlay -->
+
         <div id="game-over" class="overlay">
             <h1>GAME OVER</h1>
             <p>Final Score: <span id="final-score">0</span></p>
