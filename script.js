@@ -191,7 +191,8 @@ function update() {
         if (dist < player.width/2 + it.radius) {
             if (it.type === 'good') {
                 score += 1;
-                platforms.forEach(p => p.speed *= 1.05);
+                platforms.forEach(p => p.speed *= 1.05); //ferutre # 2
+                platforms.forEach(p => p.width = Math.max(45, p.width - 2)); //feature #3
                 scoreEl.textContent = score;
                 it.y = Math.random() * 200;
                 it.x = Math.random() * (canvas.width - 40) + 20;
