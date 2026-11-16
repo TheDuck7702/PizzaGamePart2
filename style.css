@@ -15,6 +15,18 @@ body {
     height: 640px; 
 }
 
+#pause-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 16px;
+    color: #ffd700;
+    background: rgba(20, 10, 30, 0.85);
+    cursor: pointer;
+    z-index: 15;
+    display: none; /* Hidden until game starts */
+}
+
 #score-board {
     position: absolute;
     top: 12px; 
