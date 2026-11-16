@@ -4,6 +4,8 @@ const scoreEl = document.getElementById("score");
 const finalScoreEl = document.getElementById("final-score");
 const startScreenEl = document.getElementById("start-screen");
 const gameOverEl = document.getElementById("game-over");
+const pauseScreenEl = document.getElementById("pause-screen");
+const pauseBtnEl = document.getElementById("pause-btn");      
 
 let score = 0;
 let gameState = "START"; // "START", "PLAYING", "GAMEOVER"
@@ -28,6 +30,15 @@ window.addEventListener("keydown", (e) => {
     if (gameState === "START" && (e.key === " " || e.key === "Enter")) {
         startGame();
     }
+    indow.addEventListener("keydown", (e) => {
+       keys[e.key] = true;
+        if (gameState === "START" && (e.key === " " || e.key === "Enter")) {
+            startGame();
+        }
+        if (e.key === "p" && (gameState === "PLAYING" || gameState === "PAUSED")) {
+            togglePause();
+        }
+    });
 });
 window.addEventListener("keyup", (e) => keys[e.key] = false);
 
@@ -64,6 +75,22 @@ function startGame() {
     resetPlayerPosition();
     generateInitialPlatforms();
     generateInitialItems();
+
+    pauseScreenEl.style.display = "none"; 
+    pauseBtnEl.style.display = "block";  
+    pauseBtnEl.textContent = "pause"; 
+}
+
+function togglePause() {
+    if (gameState === "PLAYING") {
+        gameState = "PAUSED";
+        pauseScreenEl.style.display = "flex";
+        pauseBtnEl.textContent = "pause";
+    } else if (gameState === "PAUSED") {
+        gameState = "PLAYING";
+        pauseScreenEl.style.display = "none";
+        pauseBtnEl.textContent = "play";
+    }
 }
 
 function resetPlayerPosition() {
@@ -207,6 +234,7 @@ function endGame() {
     gameState = "GAMEOVER";
     finalScoreEl.textContent = score;
     gameOverEl.style.display = "flex";
+    pauseBtnEl.style.display = "none";
 }
 
 function resetGame() {
