@@ -27,6 +27,10 @@ body {
     display: none; /* Hidden until game starts */
 }
 
+#pause-screen {
+    display: none;
+}
+
 #score-board {
     position: absolute;
     top: 12px; 
