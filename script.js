@@ -191,6 +191,7 @@ function update() {
         if (dist < player.width/2 + it.radius) {
             if (it.type === 'good') {
                 score += 1;
+                platforms.forEach(p => p.speed *= 1.05);
                 scoreEl.textContent = score;
                 it.y = Math.random() * 200;
                 it.x = Math.random() * (canvas.width - 40) + 20;
