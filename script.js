@@ -30,15 +30,9 @@ window.addEventListener("keydown", (e) => {
     if (gameState === "START" && (e.key === " " || e.key === "Enter")) {
         startGame();
     }
-    indow.addEventListener("keydown", (e) => {
-       keys[e.key] = true;
-        if (gameState === "START" && (e.key === " " || e.key === "Enter")) {
-            startGame();
-        }
-        if (e.key === "p" && (gameState === "PLAYING" || gameState === "PAUSED")) {
-            togglePause();
-        }
-    });
+    if ((e.key === "p" || e.key === "P") && (gameState === "PLAYING" || gameState === "PAUSED")) {
+        togglePause();
+    }
 });
 window.addEventListener("keyup", (e) => keys[e.key] = false);
 
